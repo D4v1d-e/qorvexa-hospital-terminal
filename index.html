@@ -1958,6 +1958,8 @@ function renderNetwork(){
  const mount=$("#labNet");if(!mount)return;
  const r=netRoute();
  mount.innerHTML = r.kind==="dir"?netDirHTML():r.kind==="div"?netDivHTML(r.d):r.kind==="lab"?netLabHTML(r.x):r.kind==="models"?modelLibHTML():r.kind==="model"?modelPageHTML(r.m):r.kind==="admin"?adminHTML():netSearchHTML(r.q,r.scope);
+ const wantScene=r.kind==="lab"?(r.x.e.s||null):(r.kind==="model"&&r.m.v==="lab"?r.m.sc:null);
+ if(wantScene&&LABV.V.scene!==wantScene)LABV.setScene(wantScene);
  renderSearchBar();
  $("#labStudio").hidden=!((r.kind==="lab"&&r.x.e.s)||(r.kind==="model"&&r.m.v==="lab"));
  mount.querySelectorAll("[data-net-mod]").forEach(a=>a.addEventListener("click",ev=>{ev.preventDefault();location.hash="#bodyverse";setTimeout(()=>BODY.setScene(a.dataset.netMod),160);}));
