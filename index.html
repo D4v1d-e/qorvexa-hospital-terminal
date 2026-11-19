@@ -228,8 +228,6 @@ h1{font-size:clamp(46px,6vw,78px);line-height:1.02;letter-spacing:-1.5px;margin:
 h1 span,.gold{color:var(--gold2)}
 .hero-copy{font-size:19px;color:#c3d0df;max-width:650px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
-.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:35px;color:var(--muted);font-size:13px}
-.hero-meta strong{display:block;color:var(--gold2);font-size:20px}
 .hero-visual{min-height:520px;position:relative;display:grid;place-items:center;perspective:1200px}
 .halo{position:absolute;width:min(430px,92%);aspect-ratio:1;border-radius:50%;border:1px solid rgba(217,182,91,.32);box-shadow:0 0 70px rgba(40,120,190,.13),inset 0 0 70px rgba(217,182,91,.06);animation:halo 22s linear infinite}
 .halo:before,.halo:after{content:"";position:absolute;inset:9%;border:1px dashed rgba(232,238,245,.22);border-radius:50%;transform:rotateX(68deg)}
@@ -240,9 +238,6 @@ h1 span,.gold{color:var(--gold2)}
 .hero-ring{position:absolute;width:min(360px,82%);aspect-ratio:1;border:2px solid rgba(217,182,91,.4);border-radius:50%;transform:rotateX(76deg);pointer-events:none}
 .hero-ring.r2{width:min(430px,95%);border-color:rgba(91,168,218,.34);border-style:dashed}
 @keyframes heroFloat{50%{transform:translateY(-14px)}}
-.float-card{position:absolute;padding:12px 15px;background:rgba(10,29,54,.84);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);font-size:13px;backdrop-filter:blur(12px)}
-.float-card b{display:block;color:var(--gold2);font-size:15px}
-.fc1{top:10%;left:0}.fc2{right:0;top:34%}.fc3{bottom:9%;left:9%}
 .section-head{max-width:760px;margin-bottom:38px}
 .section-head h2{font-size:clamp(32px,4vw,48px);line-height:1.08;margin:10px 0 14px}
 .section-head p{color:var(--muted);font-size:17px}
@@ -383,22 +378,455 @@ footer h3{color:var(--gold2)}
 @media(max-width:980px){nav{gap:11px}nav a{font-size:13px}.hero{grid-template-columns:1fr}.hero-visual{min-height:430px}.grid-3{grid-template-columns:repeat(2,1fr)}.bv-wrap,.lab-wrap{grid-template-columns:1fr}.bv-stage{height:560px}.bv-stage.wide{height:440px}}
 @media(max-width:1180px){nav{gap:12px}nav a{font-size:13px}}
 @media(max-width:1150px){.menu-btn{display:block}nav{display:none;position:absolute;top:67px;left:0;right:0;background:#07162d;padding:16px 22px 20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:9px 0;font-size:16px;border-bottom:1px solid rgba(255,255,255,.06);white-space:normal}}
-@media(max-width:760px){.nav-actions .btn{display:none}.hero{padding-top:55px;min-height:0}.hero-visual{min-height:360px}.float-card{font-size:11px}.grid-3,.grid-2,.split{grid-template-columns:1fr}.framework-list{grid-template-columns:1fr}.dash{grid-template-columns:1fr}.dash-side{border-right:0;border-bottom:1px solid var(--line)}.dash-side nav{display:grid;position:static;padding:0;background:transparent;border:0}.footer-inner{grid-template-columns:1fr}.brand-name{font-size:19px}section{padding:66px 18px}.bv-stage{height:480px;min-height:0}.bv-stage.wide{height:400px}.op-card{grid-template-columns:1fr}.op-card img{width:150px;height:150px}.bv-tilt{display:none}.fw-body{padding-left:16px}}
+@media(max-width:760px){.nav-actions .btn{display:none}.hero{padding-top:55px;min-height:0}.hero-visual{min-height:360px}.grid-3,.grid-2,.split{grid-template-columns:1fr}.framework-list{grid-template-columns:1fr}.dash{grid-template-columns:1fr}.dash-side{border-right:0;border-bottom:1px solid var(--line)}.dash-side nav{display:grid;position:static;padding:0;background:transparent;border:0}.footer-inner{grid-template-columns:1fr}.brand-name{font-size:19px}section{padding:66px 18px}.bv-stage{height:480px;min-height:0}.bv-stage.wide{height:400px}.op-card{grid-template-columns:1fr}.op-card img{width:150px;height:150px}.bv-tilt{display:none}.fw-body{padding-left:16px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
+<style>
+/* ============ QORVEXA terminal theme ============ */
+:root{
+ --navy:#030a1c;--navy2:#0a1630;--blue:#12365f;--gold:#e8bd4f;--gold2:#f6d77a;--gold3:#b8891f;
+ --ice:#eaf1ff;--white:#fff;--muted:#9fb0d0;--line:rgba(232,189,79,.26);--glass:rgba(126,170,240,.055);
+ --panel:#07132b;--panel2:#0a1a3a;--shadow:0 24px 70px rgba(0,0,0,.45);
+ --glow:0 0 0 1px rgba(232,189,79,.55),0 0 26px rgba(232,189,79,.16);
+ --ui:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+ --display:"Times New Roman",Georgia,"Nimbus Roman",serif;
+ color-scheme:dark;
+}
+body{background:
+ radial-gradient(1100px 620px at 12% -12%,rgba(21,58,101,.55),transparent 62%),
+ radial-gradient(900px 560px at 100% -4%,rgba(120,86,26,.22),transparent 58%),
+ radial-gradient(1200px 800px at 50% 118%,rgba(9,26,52,.9),transparent 60%),
+ var(--navy);
+ font-family:var(--ui);line-height:1.6}
+h1,h2,.display{font-family:var(--display);letter-spacing:0}
+h1{letter-spacing:-1px}
+.skip{border-radius:0 0 10px 0}
+.bg-orb{opacity:.16}
+.orb-a{background:#1c75bc}.orb-b{background:#e8bd4f}
+
+/* controls */
+.btn{border-radius:999px;background:linear-gradient(180deg,#f2cb62,#b8891f);color:#1a1200;border:1px solid rgba(246,215,122,.5);
+ padding:11px 22px;font-weight:600;font-size:14.5px;letter-spacing:.2px;box-shadow:0 10px 26px rgba(232,189,79,.16);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(232,189,79,.26);filter:none}
+.btn.small{padding:8px 15px;font-size:13px}
+.btn.ghost{background:rgba(232,189,79,.06);color:var(--gold2);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{background:rgba(232,189,79,.14);border-color:var(--gold)}
+.btn.danger{background:transparent;border:1px solid rgba(240,176,164,.42);color:#f0b6b6}
+.control{border-radius:999px;background:rgba(10,22,48,.72);border:1px solid var(--line);color:var(--gold2);padding:9px 15px;font-size:13px;transition:.2s}
+.control:disabled{opacity:.34;cursor:not-allowed}
+.control:hover{background:rgba(232,189,79,.16);border-color:var(--gold)}
+.control.on{background:rgba(232,189,79,.24);border-color:var(--gold2)}
+input,select{border-radius:999px;background:rgba(7,19,43,.9);border:1px solid rgba(159,176,208,.22);color:var(--ice);padding:12px 16px}
+textarea{border-radius:14px;background:rgba(7,19,43,.9);border:1px solid rgba(159,176,208,.22);color:var(--ice);padding:13px 16px}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,189,79,.14)}
+input::placeholder,textarea::placeholder{color:#7f92b4}
+::selection{background:rgba(232,189,79,.3);color:#fff}
+[type=range]{border-radius:0;background:none;padding:0;border:0;accent-color:var(--gold)}
+
+/* surfaces */
+.card,.panel,.nsec,.notice,.net-div,.net-lab,.net-hit,.ask-hit,.mdl,.lib-row,.stat,.fw,.case,.pub,.gal-card,.log-row,.bv-detail,.op-card,.act{
+ border:1px solid var(--line);border-radius:16px;background:linear-gradient(165deg,rgba(13,29,58,.72),rgba(6,15,32,.62));box-shadow:0 14px 36px rgba(0,0,0,.28)}
+.card:hover,.mdl:hover,.net-div:hover,.net-lab:hover,.net-hit:hover{border-color:var(--gold);box-shadow:var(--glow)}
+.panel{border-radius:20px;background:linear-gradient(160deg,rgba(14,32,62,.86),rgba(6,16,34,.74));box-shadow:var(--shadow)}
+.nsec{border-radius:18px}
+.nsec.alt{background:linear-gradient(160deg,rgba(10,26,52,.9),rgba(5,14,30,.8))}
+.notice{background:rgba(232,189,79,.07);border-radius:14px;color:#d6e2f3}
+.eyebrow{color:var(--gold2);letter-spacing:3.4px;font-family:var(--ui);font-size:11.5px}
+.section-head h2{font-family:var(--display)}
+.net-h,.nsec-top h4,.lib-item b,.pub b,.mdl b{font-family:var(--ui)}
+.thumb{border-radius:14px;border-color:var(--line);background:radial-gradient(circle at 50% 38%,rgba(28,117,188,.34),rgba(3,10,24,.9) 72%)}
+.swatch{border-radius:12px}
+footer{background:linear-gradient(180deg,rgba(4,12,26,.6),rgba(3,8,18,.95));border-top:1px solid var(--line)}
+
+/* overlays */
+#toast{background:rgba(10,26,58,.97);border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:11px 20px;box-shadow:var(--glow)}
+#lightbox{background:rgba(2,7,16,.94)}
+#qPanel{background:rgba(2,7,16,.82)}
+.qp-in{background:linear-gradient(160deg,rgba(13,32,62,.97),rgba(6,16,34,.96));border:1px solid var(--gold);border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+dialog{background:var(--panel);color:var(--ice);border:1px solid var(--gold);border-radius:18px;padding:24px;max-width:min(560px,calc(100% - 28px));width:100%;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+dialog::backdrop{background:rgba(2,7,16,.72);backdrop-filter:blur(3px)}
+dialog h3{margin:0 0 10px;color:var(--gold2);font-family:var(--ui);font-size:20px}
+dialog p{margin:0 0 10px;color:#c9d7ec;font-size:15px}
+dialog ul{margin:8px 0 12px;padding-left:20px;color:#b9c8e0}
+dialog li{margin-bottom:5px}
+dialog .closebar{display:flex;justify-content:flex-end;gap:9px;margin-top:16px;flex-wrap:wrap}
+.dlg-list{display:grid;gap:9px;margin:6px 0 2px}
+.dlg-row{display:flex;gap:11px;align-items:baseline;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:rgba(10,26,58,.6)}
+.dlg-row a{color:var(--gold2);font-weight:600;text-decoration:none}
+.dlg-row span{color:var(--muted);font-size:12.5px;margin-left:auto;white-space:nowrap}
+.qres{margin-top:12px;display:grid;gap:8px}
+.qres a{border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(10,26,58,.6);color:var(--gold2);text-decoration:none;font-size:14px;text-align:left}
+.qres a:hover{border-color:var(--gold);background:rgba(232,189,79,.14)}
+
+/* ============ header ============ */
+header{background:rgba(3,10,26,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.nav-wrap{max-width:1400px;padding:9px 22px;gap:14px}
+.nav-bar{border-top:1px solid rgba(232,189,79,.14);background:rgba(3,10,26,.42)}
+.nav-in{max-width:1400px;margin:auto;padding:8px 22px}
+.brand{gap:11px}
+.brand-mark{width:40px;height:40px;border:0;border-radius:0;background:none;box-shadow:none;transform:none;display:grid;place-items:center}
+.brand-mark svg{width:40px;height:40px;filter:drop-shadow(0 0 10px rgba(232,189,79,.35))}
+.brand-name{font-family:var(--display);font-size:23px;letter-spacing:3.4px;color:var(--gold2);font-weight:700}
+.brand-sub{font-family:var(--ui);font-size:8.2px;letter-spacing:1.9px;color:#b9c8e0;font-weight:600}
+main>section{scroll-margin-top:128px}
+nav{gap:6px}
+nav a{font-size:13.5px;color:#cfdcf0;border:1px solid transparent;border-radius:999px;padding:8px 14px;white-space:nowrap;transition:.18s}
+nav a:hover{color:var(--gold2);background:rgba(232,189,79,.1)}
+nav a.navlink.active{color:#1a1200;background:linear-gradient(180deg,#f2cb62,#b8891f);font-weight:600}
+.navgrp{position:relative}
+.navgrp>button{display:inline-flex;align-items:center;gap:7px;font:inherit;font-size:13.5px;color:#cfdcf0;background:transparent;border:1px solid transparent;border-radius:999px;padding:8px 14px;white-space:nowrap;transition:.18s}
+.navgrp>button:hover{color:var(--gold2);background:rgba(232,189,79,.1)}
+.navgrp.open>button{color:var(--gold2);background:rgba(232,189,79,.13);border-color:var(--line)}
+.navgrp>button .chev{font-size:9px;opacity:.8}
+.dd{position:absolute;top:calc(100% + 12px);left:0;min-width:288px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:8px;
+ box-shadow:0 30px 70px rgba(0,0,0,.6);display:none;z-index:70}
+.dd:after{content:"";position:absolute;top:-7px;left:26px;width:12px;height:12px;background:var(--panel);border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}
+.navgrp.open .dd{display:block}
+.dd a{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:10px 12px;border:0;border-radius:11px;color:#dbe6f5;font-size:13.5px;background:none}
+.dd a:hover{background:rgba(232,189,79,.14);color:var(--gold2);transform:none}
+.dd a .k{color:var(--muted);font-size:11.5px;letter-spacing:.6px;white-space:nowrap}
+.dd .dd-act{display:flex;justify-content:space-between;align-items:baseline;gap:14px;width:100%;text-align:left;padding:10px 12px;border:0;border-radius:11px;color:#dbe6f5;background:none;cursor:pointer;font-family:inherit;font-size:13.5px;transition:.16s}
+.dd .dd-act:hover{background:rgba(232,189,79,.14);color:var(--gold2);transform:none}
+.dd .dd-act .k{color:var(--muted);font-size:11.5px;letter-spacing:.6px;white-space:nowrap}
+@media(hover:hover) and (min-width:1151px){.navgrp:hover .dd,.navgrp:focus-within .dd{display:block}}
+.dd .ddh{color:var(--muted);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;padding:9px 12px 4px}
+.nav-actions{gap:9px}
+.nav-search{border-radius:999px;padding:9px 15px;font-size:13.5px;background:rgba(7,19,43,.8);gap:9px}
+.nav-search .mag{font-size:15px;line-height:1}
+.ns-txt{font-size:13.5px;color:#cfdcf0}
+.iconbtn{position:relative;width:42px;height:42px;border-radius:999px;border:1px solid var(--line);background:rgba(7,19,43,.8);color:var(--gold2);display:grid;place-items:center;transition:.2s;flex:0 0 auto}
+.iconbtn:hover{border-color:var(--gold);background:rgba(232,189,79,.14)}
+.iconbtn svg{width:20px;height:20px}
+.iconbtn .dot{position:absolute;top:7px;right:8px;width:9px;height:9px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 2px #030a1c;display:none}
+.iconbtn.has .dot{display:block}
+.avatar{min-width:42px;height:42px;border-radius:999px;border:1px solid var(--gold);background:rgba(232,189,79,.12);color:var(--gold2);
+ display:inline-flex;align-items:center;gap:9px;padding:0 14px 0 0;font-size:13.5px;font-weight:600;letter-spacing:.2px;transition:.2s;flex:0 0 auto}
+.avatar:hover{background:rgba(232,189,79,.24)}
+.av-i{width:32px;height:32px;margin:0 0 0 5px;border-radius:999px;display:grid;place-items:center;flex:0 0 auto;
+ background:linear-gradient(180deg,#f2cb62,#b8891f);color:#1a1200;font-weight:800;font-size:14px;font-family:var(--display)}
+.menu-btn{border-radius:999px;padding:8px 12px;background:rgba(7,19,43,.8)}
+/* ============ sheet dialog ============ */
+#sheet{width:min(760px,94vw);max-height:86vh;overflow:auto;padding:0}
+#sheet::backdrop{background:rgba(2,7,18,.78);backdrop-filter:blur(3px)}
+.sheet-h{display:flex;align-items:center;gap:14px;padding:20px 22px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,19,43,.97);z-index:2}
+.sheet-h svg{width:26px;height:26px;color:var(--gold2);flex:0 0 auto}
+.sheet-h h2{font-family:var(--ui);font-size:22px;margin:0;color:var(--ice);letter-spacing:.2px}
+.sheet-h p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.sheet-b{padding:18px 22px 22px}
+.sheet-b h3{font-size:15px;color:var(--gold2);margin:20px 0 8px}
+.sheet-b h3:first-child{margin-top:0}
+.sheet-b p,.sheet-b li{color:#c7d5e8;font-size:14.5px;line-height:1.62}
+.sheet-b ul{margin:0;padding-left:20px}
+.sheet-row{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:11px 13px;margin-bottom:9px;background:rgba(9,22,44,.6)}
+.sheet-row .qico{margin-top:1px}
+.sheet-row b{display:block;color:var(--ice);font-size:14px;font-weight:600;line-height:1.35}
+.sheet-row span{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+.sheet-row time{margin-left:auto;color:var(--gold2);font-size:11.5px;white-space:nowrap;letter-spacing:.3px;flex:0 0 auto}
+.sheet-row a{text-decoration:none}
+.sheet-row>div{flex:1;min-width:0}
+.sheet-row b,.sheet-row span{overflow-wrap:anywhere}
+.sheet-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+kbd{font-family:var(--ui);font-size:11.5px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:2px 7px;color:var(--gold2);background:rgba(9,22,44,.8)}
+.sheet-close{margin-left:auto}
+main{overflow-x:clip}
+@media(max-width:900px){#navMemberText{display:none}.avatar{padding:0}.av-i{margin:0}}
+@media(max-width:760px){.nav-wrap{padding:9px 14px;gap:10px}.nav-actions{gap:7px}.ns-txt{display:none}.nav-search{padding:0;width:40px;justify-content:center}.brand-name{font-size:20px;letter-spacing:2.4px}}
+@media(max-width:470px){.brand{gap:9px}.brand-name{font-size:17px;letter-spacing:1.5px}.iconbtn,.avatar{height:38px}.iconbtn{width:38px}.nav-search{width:38px}.menu-btn{padding:7px 10px;font-size:18px}}
+@media(max-width:400px){.brand-mark,.brand-mark svg{width:34px;height:34px}.nav-actions{gap:5px}.iconbtn,.avatar,.nav-search{height:36px}.iconbtn,.nav-search{width:36px}.av-i{width:28px;height:28px;font-size:13px}}
+@media(max-width:1150px){.nav-bar{border-top:0}.nav-in{padding:0}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--panel);padding:14px 18px 18px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:2px;z-index:60;box-shadow:0 24px 44px rgba(0,0,0,.5)}
+ nav.open{display:flex}nav a{padding:11px 12px;font-size:15px;border-radius:12px}
+ .navgrp{display:block}.navgrp>button{width:100%;justify-content:space-between;font-size:15px;padding:11px 12px;border-radius:12px}
+ .dd{position:static;min-width:0;display:none;border:0;background:rgba(10,26,58,.6);box-shadow:none;margin:2px 0 6px}
+ .dd:after{display:none}.navgrp.open .dd{display:block}}
+
+/* ============ splash ============ */
+#splash{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:24px;text-align:center;
+ background:radial-gradient(1200px 700px at 50% 8%,rgba(19,52,92,.6),transparent 62%),radial-gradient(900px 500px at 78% 84%,rgba(232,189,79,.12),transparent 60%),#030a1c;
+ transition:opacity .5s ease,visibility .5s}
+#splash.gone{opacity:0;visibility:hidden;pointer-events:none}
+#splash[hidden]{display:none}
+.sp-orbit{position:absolute;border:1px solid rgba(232,189,79,.22);border-radius:50%;pointer-events:none}
+.sp-orbit.o1{width:min(680px,92vw);aspect-ratio:1;animation:halo 30s linear infinite}
+.sp-orbit.o2{width:min(520px,74vw);aspect-ratio:1;border-style:dashed;border-color:rgba(126,170,240,.2);animation:halo 44s linear infinite reverse}
+.sp-mark{width:104px;height:104px;margin:0 auto 6px;filter:drop-shadow(0 0 26px rgba(232,189,79,.45))}
+.sp-mark svg{width:104px;height:104px}
+.sp-name{font-family:var(--display);font-size:clamp(46px,9vw,86px);letter-spacing:clamp(4px,1.4vw,12px);color:var(--gold2);margin:0;line-height:1.05;
+ text-shadow:0 0 40px rgba(232,189,79,.35)}
+.sp-sub{font-family:var(--display);font-size:clamp(15px,2.4vw,22px);color:#e6eefb;margin:8px 0 0;letter-spacing:.6px}
+.sp-tag{color:#cdd9ec;font-size:13px;letter-spacing:2.6px;text-transform:uppercase;margin:22px 0 16px;font-family:var(--ui)}
+.sp-tag i{color:var(--gold2);font-style:normal;padding:0 8px}
+.sp-bar{width:min(430px,86vw);height:12px;margin:0 auto;border:1px solid var(--gold3);border-radius:999px;background:var(--navy2);overflow:hidden;position:relative}
+.sp-fill{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#a8801f,#f6d77a);transition:width .25s}
+.sp-pct{color:var(--gold2);font-size:14px;letter-spacing:1.4px;margin-top:12px;font-family:var(--ui);min-height:20px}
+.sp-note{color:var(--muted);font-size:12.5px;margin-top:6px;min-height:18px;font-family:var(--ui)}
+.sp-skip{margin-top:16px}
+
+/* ============ sign-in gate ============ */
+#gate{position:fixed;inset:0;z-index:120;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:26px;padding:34px clamp(18px,5vw,72px);overflow:auto;
+ background:radial-gradient(1000px 640px at 18% 20%,rgba(21,64,116,.5),transparent 60%),radial-gradient(800px 520px at 88% 78%,rgba(232,189,79,.1),transparent 62%),#030a1c;
+ transition:opacity .45s ease,visibility .45s}
+#gate.gone{opacity:0;visibility:hidden;pointer-events:none}
+#gate[hidden]{display:none}
+.gate-art{position:relative;display:grid;place-items:center;min-height:min(74vh,620px);perspective:1200px}
+.gate-art .halo{width:min(460px,86%)}
+.gate-fig{position:relative;width:min(360px,72%);mix-blend-mode:screen;animation:heroFloat 8s ease-in-out infinite;
+ -webkit-mask-image:radial-gradient(ellipse 76% 84% at 50% 46%,#000 62%,transparent 94%);mask-image:radial-gradient(ellipse 76% 84% at 50% 46%,#000 62%,transparent 94%)}
+.gate-fig img{width:100%;height:auto}
+.gate-slogan{position:absolute;left:0;bottom:2%;font-family:var(--display);font-style:italic;font-size:clamp(20px,2.6vw,30px);color:var(--gold2);line-height:1.25;text-shadow:0 0 24px rgba(0,0,0,.6)}
+.gate-card{width:min(460px,100%);margin:auto;background:linear-gradient(165deg,rgba(14,32,62,.94),rgba(6,16,34,.92));border:1px solid var(--line);border-radius:22px;
+ padding:26px clamp(18px,3vw,30px);box-shadow:var(--shadow),var(--glow)}
+.gate-top{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.gate-top svg{width:26px;height:26px;color:var(--gold2);flex:0 0 auto}
+.gate-top h2{font-family:var(--ui);font-size:26px;margin:0;color:var(--ice);letter-spacing:.3px}
+.gate-note{color:var(--muted);font-size:14px;margin:0 0 18px}
+.field{position:relative;display:block;margin-bottom:12px}
+.field>svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--gold2);pointer-events:none;z-index:1}
+.field input{width:100%;padding:13px 46px 13px 44px;font-size:15px}
+.field .eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:999px;border:0;background:none;color:var(--gold2);display:grid;place-items:center}
+.field .eye:hover{background:rgba(232,189,79,.14)}
+.field .eye svg{width:18px;height:18px}
+.gate-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0 16px;flex-wrap:wrap}
+.check{display:inline-flex;align-items:center;gap:9px;color:#cfdcf0;font-size:13.5px;cursor:pointer;background:none;border:0;padding:0}
+.check .box{width:19px;height:19px;border-radius:6px;border:1px solid var(--line);background:rgba(7,19,43,.9);display:grid;place-items:center;color:#1a1200;font-size:12px}
+.check[aria-checked=true] .box{background:linear-gradient(180deg,#f2cb62,#b8891f);border-color:var(--gold)}
+.linkbtn{background:none;border:0;color:var(--gold2);font:inherit;font-size:13.5px;text-decoration:underline;text-underline-offset:3px;padding:0}
+.linkbtn:hover{color:#fff}
+.gate-go{width:100%;justify-content:space-between;font-size:16px;padding:13px 20px}
+.gate-go .chv{letter-spacing:-3px}
+.gate-err{color:#f0a8a8;font-size:13px;min-height:18px;margin:8px 0 0;font-family:var(--ui)}
+.gate-or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;letter-spacing:1.6px;margin:18px 0}
+.gate-or:before,.gate-or:after{content:"";flex:1;height:1px;background:var(--line)}
+.sso{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;margin-bottom:9px;padding:11px 16px;border-radius:999px;
+ border:1px solid rgba(159,176,208,.22);background:rgba(7,19,43,.85);color:var(--ice);font:inherit;font-size:14.5px;transition:.2s}
+.sso:hover{border-color:var(--gold);background:rgba(232,189,79,.12)}
+.sso svg{width:18px;height:18px;flex:0 0 auto}
+.gate-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.gate-privacy{color:var(--muted);font-size:12px;margin:14px 0 0;line-height:1.5}
+@media(max-width:900px){#gate{grid-template-columns:1fr;padding:22px 16px 40px}
+ .gate-card{order:-1;width:min(520px,100%)}
+ .gate-art{min-height:320px;order:2}
+ .gate-fig{width:min(250px,60%)}
+ .gate-slogan{position:static;margin-top:14px;text-align:center;display:block;font-size:20px}}
+
+/* ============ home ============ */
+.hero{display:block;padding-top:44px;min-height:0;max-width:1400px}
+.home{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:26px;align-items:start;width:100%}
+.home-main{display:grid;gap:26px;min-width:0}
+.home-hero{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:26px;align-items:center}
+.wm{font-family:var(--display);font-size:clamp(52px,8.4vw,104px);line-height:.96;letter-spacing:clamp(2px,.7vw,8px);margin:0;
+ color:var(--gold2);text-shadow:0 0 48px rgba(232,189,79,.3)}
+.wm-lead{font-family:var(--display);font-style:italic;font-size:clamp(22px,3vw,32px);color:#e6eefb;margin:0 0 -6px}
+.wm-sub{font-family:var(--display);font-size:clamp(19px,2.5vw,28px);color:var(--ice);margin:10px 0 0;letter-spacing:.4px}
+.hero-copy{font-size:16.5px;color:#c3d0df;max-width:620px;margin:14px 0 0}
+.hero-actions{margin:22px 0 0}
+.slogan{font-family:var(--display);font-style:italic;color:var(--gold2);font-size:clamp(21px,2.4vw,30px);line-height:1.25;
+ position:absolute;right:0;top:26%;text-align:right;text-shadow:0 0 22px rgba(0,0,0,.65);z-index:3}
+.hero-visual{min-height:min(50vh,420px)}
+.home-fig{position:relative}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(215px,100%),1fr));gap:14px}
+.feat-card{position:relative;display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(170deg,rgba(14,32,62,.8),rgba(5,13,28,.72));
+ text-decoration:none;color:inherit;transition:.22s;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.feat-card:hover{border-color:var(--gold);box-shadow:var(--glow);transform:translateY(-3px)}
+.feat-img{height:118px;background:radial-gradient(circle at 50% 42%,rgba(28,117,188,.4),rgba(3,10,24,.9) 74%);display:grid;place-items:center;overflow:hidden;border-bottom:1px solid rgba(232,189,79,.16)}
+.feat-img img{max-height:112px;width:100%;height:100%;object-fit:cover;transition:.4s}
+.feat-img .glyph{font-size:44px;color:var(--gold2)}
+.feat-card:hover .feat-img img{transform:scale(1.06)}
+.feat-b{padding:13px 15px 16px}
+.feat-b b{display:block;font-size:15.5px;color:var(--ice);line-height:1.3;font-weight:600}
+.feat-b span{display:block;color:var(--muted);font-size:13px;margin-top:5px}
+.feat-b .go{color:var(--gold2);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;margin-top:9px;display:block}
+.home-rail{display:grid;gap:16px;align-content:start;position:sticky;top:132px}
+.rail{border:1px solid var(--line);border-radius:18px;background:linear-gradient(165deg,rgba(13,30,58,.86),rgba(5,14,30,.78));padding:16px 15px;box-shadow:var(--shadow)}
+.rail h3{font-family:var(--ui);font-size:15px;color:var(--gold2);margin:0 0 12px;letter-spacing:.4px}
+.qrow{display:flex;gap:11px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);border-radius:13px;padding:10px 11px;margin-bottom:8px;
+ background:rgba(9,22,44,.7);color:var(--ice);font:inherit;font-size:13.5px;text-decoration:none;transition:.2s}
+.qrow:last-child{margin-bottom:0}
+.qrow:hover{border-color:var(--gold);background:rgba(232,189,79,.13);transform:translateY(-1px)}
+.qico{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(232,189,79,.1);display:grid;place-items:center;color:var(--gold2);flex:0 0 auto}
+.qico svg{width:17px;height:17px}
+.qrow b{font-weight:600;font-size:13.5px;line-height:1.25}
+.qrow i{display:block;font-style:normal;color:var(--muted);font-size:11.5px;margin-top:2px}
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.imp{text-align:center;border:1px solid var(--line);border-radius:13px;padding:11px 6px;background:rgba(9,22,44,.7)}
+.imp .qico{margin:0 auto 7px}
+.imp b{display:block;color:var(--gold2);font-size:19px;line-height:1.1;font-family:var(--display)}
+.imp span{display:block;color:var(--muted);font-size:11px;letter-spacing:.7px;text-transform:uppercase;margin-top:4px}
+.statusbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;width:100%;margin-top:4px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;
+ background:linear-gradient(180deg,rgba(9,22,44,.8),rgba(4,11,24,.7));font-size:12.5px;color:var(--muted)}
+.statusbar .live{display:inline-flex;align-items:center;gap:8px;color:#8fe0b6;font-weight:600;letter-spacing:.3px}
+.statusbar .pip{width:9px;height:9px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pip 2.4s ease-out infinite}
+@keyframes pip{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}100%{box-shadow:0 0 0 9px rgba(74,222,128,0)}}
+.statusbar .sep{opacity:.4}
+.statusbar .quote{margin-left:auto;font-family:var(--display);font-style:italic;color:var(--gold2);font-size:13px}
+@media(max-width:1180px){.home{grid-template-columns:1fr}.home-rail{position:static;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}.slogan{position:static;text-align:left;display:block;margin-top:14px}}
+@media(max-width:820px){.home-hero{grid-template-columns:1fr}.hero-visual{min-height:340px}.impact{grid-template-columns:repeat(3,1fr)}}
+
+/* other sections follow the shell */
+section{max-width:1400px;padding:74px 22px}
+.section-head{max-width:820px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+@media(max-width:1150px){.brand-sub{display:none}}
+@media(max-width:1400px){nav a,.navgrp>button{padding:7px 10px;font-size:12.6px}.nav-wrap{padding:10px 16px}}
+.ico{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;vertical-align:-.18em}
+.ico.fill{fill:currentColor;stroke:none}
+body.locked{overflow:hidden}
+.dd .ddfoot{color:var(--muted);font-size:11.5px;padding:9px 12px 4px;border-top:1px solid var(--line);margin-top:6px}
+.rail .note{color:var(--muted);font-size:11.5px;margin:10px 0 0;line-height:1.5}
+</style>
+<noscript><style>#splash,#gate{display:none!important}body{overflow:auto!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#home">Skip to content</a>
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
+ <symbol id="i-mark" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+  <path d="M32 4c8 9.5 13 16.5 13 25.5 0 9-6 15-13 21-7-6-13-12-13-21C19 20.5 24 13.5 32 4z"/>
+  <path d="M22.5 22c6.3 4 12.7 4 19 0M21.5 31c7 4 14.5 4 21 0M23.5 40c5.6 3.2 11.4 3.2 17 0" stroke-width="2.1"/></g>
+  <circle cx="32" cy="14" r="2.8" fill="currentColor"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.4 16.4 21.5 21.5"/></symbol>
+ <symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 3.2a6 6 0 0 1 6 6v3.6l2 3.2H4l2-3.2V9.2a6 6 0 0 1 6-6z"/><path d="M10 19.6a2.2 2.2 0 0 0 4 0"/></symbol>
+ <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.7-4 3.8-6 7.5-6s6.8 2 7.5 6"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="3"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.8-6.6 10-6.6S22 12 22 12s-3.8 6.6-10 6.6S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+ <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M4 4.5 20 20"/><path d="M2 12s3.8-6.6 10-6.6c2 0 3.7.7 5.1 1.6M22 12s-3.8 6.6-10 6.6c-2 0-3.7-.7-5.1-1.6"/></symbol>
+ <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6v4.6l4.2 9.2A2.6 2.6 0 0 1 16.9 20H7.1a2.6 2.6 0 0 1-2.3-3.2L9 7.6z"/><path d="M6.6 14.6h10.8"/></symbol>
+ <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.8 20.5 7v10L12 21.2 3.5 17V7z"/><path d="M3.5 7 12 11.4 20.5 7M12 11.4v9.8"/></symbol>
+ <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5.2a3.2 3.2 0 0 0-6 1.5 3 3 0 0 0-1.4 5.2A3.2 3.2 0 0 0 8 18.6a3 3 0 0 0 4 .9zM12 5.2a3.2 3.2 0 0 1 6 1.5 3 3 0 0 1 1.4 5.2A3.2 3.2 0 0 1 16 18.6a3 3 0 0 1-4 .9z"/><path d="M12 5.2v14.3"/></symbol>
+ <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4.4"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.4" transform="rotate(-60 12 12)"/></symbol>
+ <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.6c0 1.4 2.5 2.9 5.5 2.9s5.5-1.5 5.5-2.9V11"/><path d="M21.5 9v5"/></symbol>
+ <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9.4 9.2a2.7 2.7 0 0 1 5.2.9c0 1.8-2.2 2-2.2 3.6"/><path d="M12 17.4h.01"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+ <symbol id="i-microscope" viewBox="0 0 24 24"><path d="M9 3.5h3.5v6H9zM10.7 9.5v3.2M6 20.5h13M8.5 20.5a6 6 0 0 1-2-4.5 5.5 5.5 0 0 1 5.5-5.5h1"/><path d="M14 13.5h3.5"/></symbol>
+ <symbol id="i-ai" viewBox="0 0 24 24"><rect x="4" y="7.5" width="16" height="12" rx="3.4"/><path d="M12 3.4v4.1M8.6 12.4h.01M15.4 12.4h.01M9.4 16.2h5.2"/></symbol>
+ <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2.5 13h4l2-6 3.4 12 2.6-7 1.6 3h5.4"/></symbol>
+ <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M2.9 9.2h18.2M2.9 14.8h18.2M12 2.8c3 3.2 3 15.2 0 18.4-3-3.2-3-15.2 0-18.4z"/></symbol>
+ <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5h6a3 3 0 0 1 3 3v12a2.4 2.4 0 0 0-2.4-2.4H4z"/><path d="M20 4.5h-6a3 3 0 0 0-3 3v12a2.4 2.4 0 0 1 2.4-2.4H20z"/></symbol>
+ <symbol id="i-google" viewBox="0 0 24 24"><path fill="#4285F4" stroke="none" d="M23 12.3c0-.9-.1-1.5-.3-2.2H12v4.1h6.2c-.1 1-.8 2.5-2.4 3.6l3.6 2.8c2.1-1.9 3.4-4.8 3.4-8.3z"/><path fill="#34A853" stroke="none" d="M12 23c3.2 0 5.9-1.1 7.8-2.9l-3.6-2.8c-1 .7-2.3 1.2-4.2 1.2-3.2 0-5.9-2.1-6.9-5L1.5 18.5C3.4 21.2 7.4 23 12 23z"/><path fill="#FBBC05" stroke="none" d="M5.1 13.5A7.6 7.6 0 0 1 4.7 11c0-.9.2-1.7.4-2.5L1.5 5.7A11 11 0 0 0 .9 11c0 1.8.4 3.5 1.1 5l3.1-2.5z"/><path fill="#EA4335" stroke="none" d="M12 4.6c1.9 0 3.2.7 3.9 1.3l3-2.9C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.8 1.5 5.7l3.6 2.8c1-2.9 3.7-4.9 6.9-4.9z"/></symbol>
+ <symbol id="i-ms" viewBox="0 0 24 24"><path fill="#F25022" stroke="none" d="M2.5 2.5h8.7v8.7H2.5z"/><path fill="#7FBA00" stroke="none" d="M12.8 2.5h8.7v8.7h-8.7z"/><path fill="#00A4EF" stroke="none" d="M2.5 12.8h8.7v8.7H2.5z"/><path fill="#FFB900" stroke="none" d="M12.8 12.8h8.7v8.7h-8.7z"/></symbol>
+</defs></svg>
+
+<div id="splash" aria-live="polite" aria-label="Loading QORVEXA">
+ <div class="sp-orbit o1" aria-hidden="true"></div><div class="sp-orbit o2" aria-hidden="true"></div>
+ <div style="position:relative">
+  <div class="sp-mark" aria-hidden="true"><svg class="ico" style="width:104px;height:104px;color:var(--gold2)"><use href="#i-mark"/></svg></div>
+  <div class="sp-name">QORVEXA</div>
+  <p class="sp-sub">Medical Diagnostics &amp; Scientific Discovery</p>
+  <p class="sp-tag">Explore<i>&#183;</i>Discover<i>&#183;</i>Innovate</p>
+  <div class="sp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="spBar"><span class="sp-fill" id="spFill"></span></div>
+  <p class="sp-pct" id="spPct">0%</p>
+  <p class="sp-note" id="spNote">Decoding the embedded renders&#8230;</p>
+  <p class="sp-skip"><button class="control" id="spSkip" type="button">Skip intro</button></p>
+ </div>
+</div>
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" hidden>
+ <div class="gate-art" aria-hidden="true">
+  <div class="halo"></div>
+  <div class="gate-fig"><img id="gateFig" alt=""></div>
+  <div class="gate-slogan">Advance Science.<br>Better Health.</div>
+ </div>
+ <div class="gate-card">
+  <div class="gate-top"><svg class="ico" style="width:26px;height:26px"><use href="#i-lock"/></svg><h2 id="gateTitle">Sign In</h2></div>
+  <p class="gate-note" id="gateNote">Access your QORVEXA workspace on this device.</p>
+  <form id="gateForm" novalidate>
+   <label class="field"><svg class="ico"><use href="#i-user"/></svg>
+    <input id="gUser" name="who" placeholder="Email address / username" autocomplete="username" aria-label="Email address or username" maxlength="80"></label>
+   <label class="field"><svg class="ico"><use href="#i-lock"/></svg>
+    <input id="gPass" name="pass" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password" maxlength="72">
+    <button type="button" class="eye" id="gEye" aria-label="Show password" aria-pressed="false"><svg class="ico"><use href="#i-eye"/></svg></button></label>
+   <div class="gate-row">
+    <button type="button" class="check" id="gRemember" role="checkbox" aria-checked="false"><span class="box">&#10003;</span>Remember me</button>
+    <button type="button" class="linkbtn" id="gForgot">Forgot password?</button>
+   </div>
+   <button class="btn gate-go" type="submit">Sign In <span class="chv">&#8250;&#8250;</span></button>
+   <p class="gate-err" id="gErr" role="alert"></p>
+  </form>
+  <div class="gate-or">OR</div>
+  <button class="sso" type="button" data-sso="Google"><svg class="ico" style="width:18px;height:18px"><use href="#i-google"/></svg>Continue with Google</button>
+  <button class="sso" type="button" data-sso="Microsoft"><svg class="ico" style="width:18px;height:18px"><use href="#i-ms"/></svg>Continue with Microsoft</button>
+  <div class="gate-foot">
+   <span>Don&#8217;t have an account? <button type="button" class="linkbtn" id="gCreate">Create account</button></span>
+   <button type="button" class="linkbtn" id="gGuest">Continue as guest</button>
+  </div>
+  <p class="gate-privacy" id="gatePrivacy">No server and no network: this workspace is stored in this browser only. The passphrase is kept as a salted SHA-256 hash and is never transmitted.</p>
+ </div>
+</div>
+
+<dialog id="sheet" aria-label="QORVEXA information"></dialog>
 <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
 <header>
  <div class="nav-wrap">
-  <a class="brand" href="#home" aria-label="QORVEXA home"><div class="brand-mark">Q</div><div><div class="brand-name">QORVEXA</div><div class="brand-sub">HEALTH TECHNOLOGIES</div></div></a>
-  <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav id="mainNav" aria-label="Main navigation">
-   <a href="#home">Home</a><a href="#about">About</a><a href="#products">Products</a><a href="#bodyverse">BODYVERSE</a><a href="#labs">Labs</a><a href="#/models">3D Models</a><a href="#innovation">Innovation</a><a href="#framework">Framework</a><a href="#leadership">Leadership</a><a href="#membership">Member area</a><a href="#contact">Contact</a>
-  </nav>
-  <div class="nav-actions"><button class="nav-search" id="navSearch" aria-label="Search QORVEXA" title="Search the whole platform">⌕<span class="ns-txt">Search</span></button><a class="btn ghost" href="#membership" id="navMember">Member area</a><a class="btn" href="#contact">Connect with us ↗</a></div>
+  <a class="brand" href="#home" aria-label="QORVEXA home">
+   <span class="brand-mark" aria-hidden="true"><svg class="ico" style="width:44px;height:44px;color:var(--gold2)"><use href="#i-mark"/></svg></span>
+   <span><span class="brand-name">QORVEXA</span><span class="brand-sub">MEDICAL DIAGNOSTICS &amp; SCIENTIFIC DISCOVERY</span></span>
+  </a>
+  <div class="nav-actions">
+   <button class="nav-search" id="navSearch" aria-label="Search the whole platform" title="Search the whole platform"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><span class="ns-txt">Search</span></button>
+   <button class="iconbtn" id="navBell" type="button" aria-label="Activity on this device"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg><span class="dot" aria-hidden="true"></span></button>
+   <button class="avatar" id="navMember" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Sign in or open your workspace"><span class="av-i" id="navMemberInitial" aria-hidden="true">Q</span><span id="navMemberText">Sign in</span></button>
+   <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+  </div>
  </div>
+ <div class="nav-bar"><div class="nav-in">
+  <nav id="mainNav" aria-label="Main navigation">
+   <a class="navlink" href="#home">Home</a>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">About <span class="chev">&#9662;</span></button>
+    <div class="dd">
+     <a href="#about">Who we are<span class="k">Overview</span></a>
+     <a href="#leadership">Leadership &amp; direction<span class="k">Section</span></a>
+     <a href="#roadmap">Strategic roadmap<span class="k">5 stages</span></a>
+     <a href="#/admin/search-analytics">Administrator analytics<span class="k">This device</span></a>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">Laboratories <span class="chev">&#9662;</span></button>
+    <div class="dd" id="ddLabs">
+     <a href="#labs">Network home<span class="k">Directory</span></a>
+     <div class="ddh">Research centers</div>
+     <a href="#/labs/advanced-medical-research">Advanced Medical Research<span class="k" data-cnt="d:advanced-medical-research">–</span></a>
+     <a href="#/labs/human-body-medical-sciences">Human Body &amp; Medical Sciences<span class="k" data-cnt="d:human-body-medical-sciences">–</span></a>
+     <a href="#/labs/diagnostics-laboratory-science">Diagnostics &amp; Laboratory Science<span class="k" data-cnt="d:diagnostics-laboratory-science">–</span></a>
+     <a href="#/labs/ai-biomedical-research">AI &amp; Biomedical Research<span class="k" data-cnt="d:ai-biomedical-research">–</span></a>
+     <p class="ddfoot" id="ddLabsFoot">Every page uses the same seven-section structure.</p>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">Research <span class="chev">&#9662;</span></button>
+    <div class="dd">
+     <a href="#innovation">Research &amp; innovation<span class="k">Section</span></a>
+     <a href="#framework">Strategic frameworks<span class="k" data-cnt="fw">28</span></a>
+     <a href="#bodyverse">BODYVERSE prototype<span class="k">3D</span></a>
+     <button type="button" class="dd-act" data-act="pubs">Publications register<span class="k" data-cnt="pubs">–</span></button>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">Academy <span class="chev">&#9662;</span></button>
+    <div class="dd">
+     <a href="#bodyverse">Body systems modules<span class="k" data-cnt="mods">7</span></a>
+     <a href="#/labs/diagnostics-laboratory-science">Teaching cases &amp; activities<span class="k">Learning</span></a>
+     <a href="#/labs/advanced-medical-research">Cell &amp; molecular science<span class="k">Center</span></a>
+     <a href="#/labs/ai-biomedical-research">AI &amp; biomedical science<span class="k">Center</span></a>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">Services <span class="chev">&#9662;</span></button>
+    <div class="dd">
+     <a href="#membership">Member workspace<span class="k">Local</span></a>
+     <a href="#contact">Prepare an enquiry<span class="k">Draft</span></a>
+     <button type="button" class="dd-act" data-act="search">Platform search<span class="k" data-cnt="docs">626 docs</span></button>
+     <button type="button" class="dd-act" data-act="help">Help &amp; how this works<span class="k">Guide</span></button>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">3D Gallery <span class="chev">&#9662;</span></button>
+    <div class="dd">
+     <a href="#/models">Model library<span class="k" data-cnt="models">20</span></a>
+     <a href="#/models/human-body-anterior">Human body, anterior<span class="k">Stack</span></a>
+     <a href="#/models/heart">Organs<span class="k" data-cnt="organs">8</span></a>
+     <a href="#/models/genomics-suite">Laboratory scenes<span class="k" data-cnt="scenes">3</span></a>
+    </div>
+   </div>
+   <div class="navgrp"><button type="button" aria-haspopup="true" aria-expanded="false">Publications <span class="chev">&#9662;</span></button>
+    <div class="dd" id="ddPubs"><a href="#innovation">Research &amp; publications<span class="k">Section 7</span></a></div>
+   </div>
+   <a class="navlink" href="#contact">Contact</a>
+  </nav>
+ </div></div>
 </header>
 
 <main>
@@ -410,20 +838,72 @@ footer h3{color:var(--gold2)}
  <button class="control" id="pgMode" aria-pressed="true">Scroll as one page</button>
 </div>
 <section class="hero" id="home">
- <div class="hero-text reveal">
-  <div class="eyebrow">The next perspective in health technology</div>
-  <h1>Redefining the<br><span>Future of Healthcare.</span></h1>
-  <p class="hero-copy">QORVEXA brings technology, research and human-centred design together to shape a more informed, connected and accessible healthcare future.</p>
-  <div class="hero-actions"><a class="btn" href="#bodyverse">Enter the BODYVERSE <span>→</span></a><a class="btn ghost" href="#innovation">Explore innovation</a></div>
-  <div class="hero-meta"><div><strong>01</strong>Purpose-led innovation</div><div><strong>3D</strong>Interactive learning vision</div><div><strong>28</strong>Strategic frameworks</div></div>
+ <div class="home">
+  <div class="home-main">
+   <div class="home-hero">
+    <div class="hero-text reveal">
+     <div class="eyebrow">The next perspective in health technology</div>
+     <p class="wm-lead">Welcome to</p>
+     <h1 class="wm">QORVEXA</h1>
+     <p class="wm-sub">Medical Diagnostics &amp; Scientific Discovery</p>
+     <p class="hero-copy">One offline workspace for layered anatomy, the four-center laboratory network, the 3D model library and the research record. Everything you open is real content stored on this device &mdash; no servers, no accounts, no patient data.</p>
+     <div class="hero-actions"><a class="btn" href="#bodyverse">Explore the platform <span>&#8594;</span></a><button class="btn ghost" type="button" id="watchIntro">Replay intro</button></div>
+    </div>
+    <div class="hero-visual home-fig reveal">
+     <div class="halo"></div>
+     <div class="hero-ring"></div><div class="hero-ring r2"></div>
+     <div class="hero-fig"><img id="heroFig" alt="Anatomical render of the human muscular system, used as the BODYVERSE reference figure" width="860" height="1290"></div>
+     <div class="slogan">Advance Science.<br>Better Health.</div>
+    </div>
+   </div>
+   <div class="feat reveal">
+    <a class="feat-card" href="#bodyverse"><span class="feat-img"><img data-thumb="figFront" alt="Anterior muscular layer of the BODYVERSE anatomy stack"></span><span class="feat-b"><b>Human Anatomy Explorer</b><span>Layered anterior and posterior stacks with eight body-system planes.</span><span class="go">Open BODYVERSE &#8594;</span></span></a>
+    <a class="feat-card" href="#/labs/advanced-medical-research/cell-biology"><span class="feat-img"><img data-thumb="dna" alt="DNA double helix render"></span><span class="feat-b"><b>Cell &amp; Molecular Discovery</b><span>Cells, organelles, DNA, proteins and the machinery inside a living cell.</span><span class="go">Enter the center &#8594;</span></span></a>
+    <a class="feat-card" href="#labs"><span class="feat-img"><img data-thumb="gene_mid" alt="Genomics laboratory bench render"></span><span class="feat-b"><b>Laboratory Network</b><span>Four research centers, forty depth-stacked laboratory and department pages.</span><span class="go">Browse laboratories &#8594;</span></span></a>
+    <a class="feat-card" href="#/labs/diagnostics-laboratory-science"><span class="feat-img"><img data-thumb="img_mid" alt="MRI and CT imaging suite render"></span><span class="feat-b"><b>Diagnostics &amp; Imaging</b><span>Clinical laboratory science, medical imaging and diagnostic method pages.</span><span class="go">Open diagnostics &#8594;</span></span></a>
+    <a class="feat-card" href="#/models/brain"><span class="feat-img"><img data-thumb="og_brain" alt="Human brain organ render"></span><span class="feat-b"><b>Neuroscience &amp; Organs</b><span>Eight organ models plus the nervous plane, brain, spine and nerve tree.</span><span class="go">View the brain &#8594;</span></span></a>
+    <a class="feat-card" href="#framework"><span class="feat-img"><img data-thumb="ai" alt="Abstract computational network render"></span><span class="feat-b"><b>Research &amp; Frameworks</b><span>Twenty-eight strategic frameworks and the publication record behind them.</span><span class="go">Read the framework &#8594;</span></span></a>
+   </div>
+  </div>
+  <aside class="home-rail reveal">
+   <div class="rail">
+    <h3>Quick Access</h3>
+    <button class="qrow" type="button" id="qaAsk"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-ai"/></svg></span><span><b>Ask QORVEXA</b><i>Search the platform and its notes</i></span></button>
+    <a class="qrow" href="#labs"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span><span><b>Laboratory network</b><i id="qaLabsCount">Research centers and lab pages</i></span></a>
+    <a class="qrow" href="#/models"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-cube"/></svg></span><span><b>3D model library</b><i id="qaModelsCount">Organs, systems and lab scenes</i></span></a>
+    <a class="qrow" href="#membership"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg></span><span><b>Member workspace</b><i>Progress saved on this device</i></span></a>
+    <a class="qrow" href="#framework"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><span><b>Strategic frameworks</b><i><span id="qaFwCount">28</span> planning frameworks</i></span></a>
+    <button class="qrow" type="button" id="qaHelp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg></span><span><b>Help &amp; shortcuts</b><i>How this offline build works</i></span></button>
+   </div>
+   <div class="rail">
+    <h3>Impact</h3>
+    <div class="impact">
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span><b data-imp="centers">4</b><span>Centers</span></div>
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span><b data-imp="labs">40</b><span>Lab pages</span></div>
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-cube"/></svg></span><b data-imp="models">20</b><span>3D models</span></div>
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span><b data-imp="docs">626</b><span>Documents</span></div>
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><b data-imp="fw">28</b><span>Frameworks</span></div>
+     <div class="imp"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-pulse"/></svg></span><b data-imp="renders">26</b><span>Renders</span></div>
+    </div>
+    <p class="note">Every figure is counted from the data in this file at load time, not written by hand.</p>
+   </div>
+   <div class="rail">
+    <h3>On this device</h3>
+    <div class="impact">
+     <div class="imp"><b id="devStructures">0</b><span>Structures</span></div>
+     <div class="imp"><b id="devStations">0</b><span>Stations</span></div>
+     <div class="imp"><b id="devRead">0</b><span>Docs read</span></div>
+    </div>
+    <p class="note">Opens live from your own browsing on this device. Nothing is uploaded.</p>
+   </div>
+  </aside>
  </div>
- <div class="hero-visual reveal">
-  <div class="halo"></div>
-  <div class="hero-ring"></div><div class="hero-ring r2"></div>
-  <div class="hero-fig"><img id="heroFig" alt="Anatomical render of the human muscular system, used as the BODYVERSE reference figure" width="860" height="1290"></div>
-  <div class="float-card fc1"><b>SCIENCE</b>Evidence-led thinking</div>
-  <div class="float-card fc2"><b>TECHNOLOGY</b>Human-centred design</div>
-  <div class="float-card fc3"><b>INNOVATION</b>Ideas into possibility</div>
+ <div class="statusbar reveal">
+  <span class="live"><span class="pip" aria-hidden="true"></span>Offline build &middot; running on this device</span>
+  <span class="sep">&bull;</span><span id="stBuild">Build &mdash;</span>
+  <span class="sep">&bull;</span><span id="stStore">Local storage: on</span>
+  <span class="sep">&bull;</span><span id="stClock" aria-live="off">--:--:--</span>
+  <span class="quote">&ldquo;Science Today. A Healthier Tomorrow.&rdquo; &mdash; QORVEXA</span>
  </div>
 </section>
 
@@ -1087,7 +1567,7 @@ function metrics(){
 }
 function renderMember(){
  const mount=$("#memberMount");if(!mount)return;
- $("#navMember").textContent=store.member||"Member area";
+ if(window.paintAvatar)window.paintAvatar();else{const t=$("#navMemberText");if(t)t.textContent=store.member||"Member area";}
  if(!store.member){
   mount.innerHTML=`<div class="dash-side"><strong>QORVEXA PORTAL</strong><p style="color:var(--muted);font-size:14px;margin:0">Local workspace preview. Progress recorded on this device: ${metrics().spots} structures, ${metrics().mods} modules, ${metrics().st} lab stations, ${metrics().fw} frameworks.</p></div>
   <div class="dash-main"><div class="eyebrow">Member sign-in</div><h2 style="font-size:29px;margin:5px 0">Open your workspace.</h2>
@@ -1130,7 +1610,6 @@ function renderMember(){
   renderLog();renderNetwork();BODY.init();LABV.init();toast("Local data cleared");
  };
  $$("#memberMount [data-goto]").forEach(a=>a.addEventListener("click",ev=>{ev.preventDefault();const lab=a.dataset.kind==="lab";location.hash=lab?a.getAttribute("href"):"#bodyverse";if(!lab)setTimeout(()=>BODY.setScene(a.dataset.goto),160);}));
- $("#navMember").textContent=store.member;
  fwCount();
 }
 /* ---------- contact ---------- */
@@ -2102,6 +2581,7 @@ const paged=()=>store.nav==="pages";
 function pageId(){const h=(location.hash||"#home").replace(/^#\/?/,"");const id=h.split("/")[0];if(id==="models"||id==="admin")return"labs";return PAGES.some(p=>p.id===id)?id:"home";}
 function showPage(scroll){
  const id=pageId(),i=PAGES.findIndex(p=>p.id===id);
+ $("#pgPrev").disabled=i<=0;$("#pgNext").disabled=i>=PAGES.length-1;
  PAGES.forEach((p,k)=>{p.hidden=k!==i;if(k===i)p.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));});
  if(id==="labs"){renderNetwork();$("#pgTitle").textContent=netTitle();}
  else $("#pgTitle").textContent=PAGE_NAMES[id]||id;
@@ -2156,6 +2636,357 @@ applyMode(store.nav==="pages",false);
 renderMember();renderLog();fwCount();spy();tickViewers();
 if(reduce)toast("Reduced motion is on — auto-orbit stays off until you enable it");
 
+</script>
+<script>
+/* ---------- shell: intro, gate, account, live counters ---------- */
+(function(){
+"use strict";
+const GKEY="qorvexa.gate.v1",SKEY="qorvexa.session.v1",AKEY="qorvexa.autologin.v1",BKEY="qorvexa.bellseen.v1";
+const L={get(k){try{return localStorage.getItem(k);}catch(e){return null;}},
+ set(k,v){try{localStorage.setItem(k,v);return true;}catch(e){return false;}},
+ del(k){try{localStorage.removeItem(k);}catch(e){}}};
+const S={get(k){try{return sessionStorage.getItem(k);}catch(e){return null;}},
+ set(k,v){try{sessionStorage.setItem(k,v);}catch(e){}},
+ del(k){try{sessionStorage.removeItem(k);}catch(e){}}};
+const jread=j=>{try{return j?JSON.parse(j):null;}catch(e){return null;}};
+const splash=$("#splash"),gate=$("#gate"),sheet=$("#sheet");
+const fill=$("#spFill"),bar=$("#spBar"),pct=$("#spPct"),note=$("#spNote");
+const entryHash=location.hash&&location.hash!=="#home"?location.hash:"";
+let sess=null,mode="login",t0=Date.now(),splashDone=false;
+
+/* ---- inventory measured from the data in this file ---- */
+const PUBS=[];
+LAB_PAGES.forEach(p=>(p.e.pubs||[]).forEach(x=>PUBS.push({t:x.t,s:x.s,d:x.d,lab:p.e.n,center:p.d.name,href:"#/labs/"+p.d.slug+"/"+p.e.id})));
+const COUNTS={centers:DIVISIONS.length,labs:LAB_PAGES.length,models:MODELS.length,docs:NET_DOCS.length,fw:FW.length,
+ renders:Object.keys(IMG).length,mods:MODULES.length,pubs:PUBS.length,
+ organs:MODELS.filter(m=>m.k==="Organ").length,scenes:MODELS.filter(m=>m.k==="Laboratory").length,
+ stations:LAB_STATION_TOTAL,spots:SPOT_TOTAL};
+
+function paintCounts(){
+ $$("[data-imp]").forEach(b=>{const v=COUNTS[b.dataset.imp];if(v!=null)b.textContent=v;});
+ $$("[data-cnt]").forEach(s=>{const d=s.dataset.cnt;
+  if(d.slice(0,2)==="d:")s.textContent=LAB_PAGES.filter(x=>x.d.slug===d.slice(2)).length+" pages";
+  else if(d==="docs")s.textContent=COUNTS.docs+" docs";
+  else if(d==="pubs")s.textContent=COUNTS.pubs+" items";
+  else if(COUNTS[d]!=null)s.textContent=COUNTS[d];});
+ const foot=$("#ddLabsFoot");
+ if(foot)foot.textContent=COUNTS.labs+" pages across "+COUNTS.centers+" centers, each on the same seven-section structure.";
+ const qa=$("#qaLabsCount");if(qa)qa.textContent=COUNTS.centers+" centers · "+COUNTS.labs+" pages";
+ const qm=$("#qaModelsCount");if(qm)qm.textContent=COUNTS.models+" models · "+COUNTS.organs+" organs · "+COUNTS.scenes+" lab scenes";
+ const qf=$("#qaFwCount");if(qf)qf.textContent=COUNTS.fw;
+ const dp=$("#ddPubs");
+ if(dp){
+  const g=[];PUBS.forEach(p=>{let r=g.find(x=>x.lab===p.lab);if(!r){r={lab:p.lab,href:p.href,n:0};g.push(r);}r.n++;});
+  dp.innerHTML='<div class="ddh">Publications by laboratory</div>'
+   +g.slice(0,6).map(r=>'<a href="'+r.href+'">'+esc(r.lab)+'<span class="k">'+r.n+'</span></a>').join("")
+   +'<button type="button" class="dd-act" data-act="pubs">Full register<span class="k">'+PUBS.length+' entries</span></button>';
+ }
+}
+function paintDevice(){
+ const m=metrics(),set=(s,v)=>{const e=$(s);if(e)e.textContent=v;};
+ set("#devStructures",m.spots);set("#devStations",m.st);set("#devRead",m.fw);
+}
+
+/* ---- overlays ---- */
+function lock(on){
+ document.body.classList.toggle("locked",on);
+ $$("body>header,main,body>footer").forEach(el=>{try{el.inert=on;}catch(e){}});
+}
+function openSheet(ic,title,sub,html){
+ sheet.innerHTML='<div class="sheet-h"><svg class="ico" aria-hidden="true"><use href="#'+ic+'"/></svg>'
+  +'<div><h2>'+title+'</h2>'+(sub?'<p>'+sub+'</p>':'')+'</div>'
+  +'<button type="button" class="control sheet-close" id="sheetX">Close &#10005;</button></div>'
+  +'<div class="sheet-b">'+html+'</div>';
+ if(typeof sheet.showModal==="function")sheet.showModal();else sheet.setAttribute("open","");
+ $("#sheetX").onclick=()=>sheet.close();
+}
+function after(fn){return ()=>{if(sheet.open)sheet.close();fn();};}
+function wire(id,fn){const e=$("#"+id);if(e)e.onclick=after(fn);}
+
+/* ---- account ---- */
+function acct(){return jread(L.get(GKEY));}
+function fail(m){$("#gErr").textContent=m||"";}
+function setMode(m){
+ mode=m;
+ const a=acct();
+ $("#gateTitle").textContent=m==="create"?"Create workspace":"Sign In";
+ $("#gateNote").textContent=m==="create"
+  ?"Choose a name and a passphrase. They never leave this browser: only a salted SHA-256 hash is stored."
+  :a?"Open the QORVEXA workspace saved on this device as “"+a.name+"”."
+   :"No workspace exists on this device yet. Create one, or continue as a guest.";
+ $(".gate-go").innerHTML=(m==="create"?"Create and enter":"Sign In")+' <span class="chv">&#8250;&#8250;</span>';
+ $("#gCreate").textContent=m==="create"?"Sign in to an existing workspace":"Create account";
+ $("#gForgot").style.display=m==="create"?"none":"";
+ fail("");
+}
+function openGate(m){
+ lock(true);gate.hidden=false;gate.classList.remove("gone");
+ const a=acct();
+ if(m==="login"&&a)$("#gUser").value=a.name;
+ setMode(m);
+ setTimeout(()=>{const f=a&&m==="login"?$("#gPass"):$("#gUser");if(f)f.focus();},80);
+}
+function begin(s){
+ sess=s;
+ if($("#gRemember").getAttribute("aria-checked")==="true"){if(L.set(AKEY,JSON.stringify(s)))S.del(SKEY);}
+ else{L.del(AKEY);S.set(SKEY,JSON.stringify(s));}
+ if(store.member!==(s.m==="acct"?s.w:null)){store.member=s.m==="acct"?s.w:null;save();}
+ gate.classList.add("gone");
+ setTimeout(()=>{gate.hidden=true;lock(false);
+  if(entryHash&&location.hash!==entryHash)location.hash=entryHash;
+  toast(s.m==="guest"?"Browsing as a guest — the workspace stored on this device is left untouched":"Workspace open as "+s.w);
+ },reduce?0:400);
+ paintAvatar();
+}
+function signOut(){
+ S.del(SKEY);L.del(AKEY);sess=null;
+ if(store.member){store.member=null;save();}
+ openGate("login");
+ toast("Signed out on this device — your exploration record is untouched");
+}
+window.paintAvatar=function(){
+ const t=$("#navMemberText"),i=$("#navMemberInitial"),b=$("#navMember");
+ if(!t)return;
+ const who=sess&&sess.m==="acct"?sess.w:"";
+ t.textContent=sess?(sess.m==="guest"?"Guest":who):"Sign in";
+ if(i)i.textContent=((who||"G").trim().charAt(0)||"Q").toUpperCase();
+ if(b)b.setAttribute("aria-label",sess?(sess.m==="guest"?"Guest session, open account options":"Signed in as "+who+", open account options"):"Sign in or open your workspace");
+};
+function openAccount(){
+ if(!sess){openGate("login");return;}
+ const m=metrics(),a=acct();
+ const row=(ic,t,s)=>'<div class="sheet-row"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#'+ic+'"/></svg></span><div><b>'+t+'</b><span>'+s+'</span></div></div>';
+ openSheet("i-user","Account",sess.m==="guest"?"Guest session on this device.":"Signed in as "+esc(sess.w)+".",
+  row("i-lock",sess.m==="guest"?"No passphrase set":"Passphrase verified locally",
+   sess.m==="guest"?"You chose the guest link, so nothing was stored as an identity.":"Checked against a salted SHA-256 hash in this browser; the text itself is never kept.")
+  +row("i-pulse","Recorded on this device",m.spots+"/"+COUNTS.spots+" structures · "+m.st+"/"+COUNTS.stations+" lab stations · "+m.mods+"/"+COUNTS.mods+" modules · "+m.fw+"/"+COUNTS.fw+" frameworks")
+  +row("i-doc","Enquiry drafts prepared here",m.enq+(m.enq===1?" draft":" drafts")+", all still on this device")
+  +(a?'<p style="margin-top:14px;color:var(--muted);font-size:13px">Workspace record created '+new Date(a.created).toLocaleString()+'.</p>':'')
+  +'<div class="sheet-actions"><a class="btn" href="#membership" id="acWs">Open workspace</a>'
+  +'<button class="control" type="button" id="acSwitch">'+(sess.m==="guest"?"Sign in properly":"Switch account")+'</button>'
+  +'<button class="control" type="button" id="acOut">Sign out</button>'
+  +'<button class="control" type="button" id="acClear">Clear this device</button></div>');
+ wire("acWs",()=>{});
+ wire("acOut",signOut);
+ wire("acSwitch",()=>openGate("login"));
+ $("#acClear").onclick=()=>{
+  sheet.close();
+  if(!confirm("Clear the QORVEXA workspace, passphrase hash and all exploration history stored in this browser? This cannot be undone."))return;
+  [KEY,GKEY,SKEY,AKEY,BKEY].forEach(k=>L.del(k));S.del(SKEY);
+  location.hash="#home";location.reload();
+ };
+}
+
+/* ---- activity feed ---- */
+function events(){
+ const out=[];
+ (store.explored||[]).forEach(x=>out.push({ts:x.ts,ic:"i-pulse",t:"Opened "+x.label,s:"Lab page on this device",href:x.href}));
+ (store.q||[]).slice(0,8).forEach(x=>out.push({ts:x.ts,ic:"i-search",t:'Searched “'+x.t+'”',s:x.n+(x.n===1?" result":" results")}));
+ (store.enquiries||[]).slice(0,5).forEach(x=>out.push({ts:x.t,ic:"i-doc",t:"Enquiry draft prepared",s:x.subject}));
+ return out.filter(x=>x.ts).sort((a,b)=>b.ts-a.ts).slice(0,14);
+}
+function paintBell(){
+ const b=$("#navBell");if(!b)return;
+ const seen=+(L.get(BKEY)||0),n=events().filter(e=>e.ts>seen).length;
+ b.classList.toggle("has",n>0);
+ b.setAttribute("aria-label",n?n+" new activity items on this device":"Activity on this device");
+}
+function openBell(){
+ const list=events();
+ L.set(BKEY,String(Date.now()));
+ const body=list.length
+  ?list.map(e=>'<div class="sheet-row"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#'+e.ic+'"/></svg></span><div>'
+   +(e.href?'<a href="'+e.href+'">'+esc(e.t)+'</a>':'<b>'+esc(e.t)+'</b>')+'<span>'+esc(e.s)+'</span></div><time>'+new Date(e.ts).toLocaleString()+'</time></div>').join("")
+  :'<p>Nothing has been recorded on this device yet. Every entry that appears here is a page you actually opened, a search you actually ran or a draft you actually prepared — the feed has no seeded or simulated items.</p>';
+ openSheet("i-bell","Activity on this device","Read from this browser's own record. Nothing is uploaded.",body);
+ paintBell();
+}
+
+/* ---- sheets with honest answers ---- */
+function openHelp(){
+ openSheet("i-help","How this build works","One HTML file. No network, no framework, no placeholder screens.",
+  '<h3>What is really here</h3><ul>'
+  +'<li>'+COUNTS.models+' model entries, '+COUNTS.labs+' laboratory and department pages, '+COUNTS.mods+' anatomy modules and '+COUNTS.fw+' strategic frameworks, all written into this file.</li>'
+  +'<li>'+COUNTS.renders+' anatomical and laboratory renders embedded as data URIs — the page issues no request, which is why it opens from a stick or a phone with the radio off.</li>'
+  +'<li>'+COUNTS.docs+' indexed documents behind the search panel, and '+COUNTS.pubs+' entries in the publications register.</li></ul>'
+  +'<h3>Sign-in, plainly</h3><p>A single offline file cannot verify a password against a server, so it does not pretend to. The gate keeps a salted SHA-256 hash in this browser and compares locally. Nothing is transmitted. Anyone with physical access can wipe the record, so treat it as a workspace preference rather than protection.</p>'
+  +'<h3>Google and Microsoft</h3><p>Those buttons open an explanation instead of a spinner. OAuth needs a server-side secret and a registered redirect domain; this file has neither.</p>'
+  +'<h3>Keyboard</h3><p><kbd>/</kbd> open search &middot; <kbd>Esc</kbd> close any panel or dialog. With a 3D stage focused: <kbd>&#8592;</kbd><kbd>&#8594;</kbd> orbit, <kbd>&#8593;</kbd><kbd>&#8595;</kbd> tilt, <kbd>+</kbd><kbd>-</kbd> zoom, <kbd>R</kbd> reset.</p>'
+  +'<h3>What is concept</h3><p>QORVEXA is a proposed venture. The laboratory scenes are AI-generated renders of representative equipment, not photographs of a facility, and the anatomical renders are illustrative teaching visualisations — not imaging, not patient data, and not a diagnosis.</p>'
+  +'<div class="sheet-actions"><button class="btn" type="button" id="hpSearch">Open platform search</button><button class="control" type="button" id="hpPubs">Publications register</button><button class="control" type="button" id="hpBell">Activity feed</button></div>');
+ wire("hpSearch",openPanel);wire("hpPubs",openPubs);wire("hpBell",openBell);
+}
+function openPubs(){
+ const by={};PUBS.forEach(p=>by[p.s]=(by[p.s]||0)+1);
+ openSheet("i-book","Publications register",PUBS.length+" entries written against the laboratory that would own the work.",
+  '<p>Status breakdown: '+Object.keys(by).map(k=>esc(k)+" ("+by[k]+")").join(" · ")+'.</p>'
+  +'<p>QORVEXA is a concept venture, so each entry is a study a named laboratory proposes to run. None of these is a published paper and none should be cited as one.</p>'
+  +PUBS.map(p=>'<div class="sheet-row"><span class="qico"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span><div>'
+   +'<a href="'+p.href+'"><b>'+esc(p.t)+'</b></a><span>'+esc(p.lab)+' &middot; '+esc(p.center)+'<br>'+esc(p.d)+'</span></div><time>'+esc(p.s)+'</time></div>').join(""));
+}
+function openSso(name){
+ openSheet(name==="Google"?"i-google":"i-ms","“Continue with "+name+"” needs a server","Nothing was sent and nothing was blocked — this build has no back end.",
+  '<p>'+name+' sign-in is an OAuth flow. It requires a client secret held by a server and a registered redirect return address. This page is a single offline file with neither, so finishing the flow here would mean inventing a successful login, and a fake sign-in screen is worse than an honest one.</p>'
+  +'<h3>Available right now</h3><ul><li>A local workspace with a passphrase hashed on this device.</li>'
+  +'<li>A guest session with the same content and the same progress tracking.</li></ul>'
+  +'<h3>What would change it</h3><p>A hosted build with a small auth service and a registered OAuth app. The screen is already shaped for it — these two buttons are the only missing piece.</p>'
+  +'<div class="sheet-actions"><button class="btn" type="button" id="ssoLocal">Use local sign-in</button><button class="control" type="button" id="ssoGuest">Continue as guest</button></div>');
+ wire("ssoLocal",()=>{setTimeout(()=>$("#gUser").focus(),50);});
+ wire("ssoGuest",()=>begin({w:"Guest",m:"guest"}));
+}
+function openForgot(){
+ const a=acct();
+ openSheet("i-lock","There is no reset link to send","The workspace lives in one browser on one device.",
+  (a?'<p>The record on this device belongs to <b>'+esc(a.name)+'</b>, created '+new Date(a.created).toLocaleString()+'.</p>'
+    :'<p>No workspace has been created on this device yet.</p>')
+  +'<p>A passphrase is kept only as a salted SHA-256 hash, so it cannot be shown or emailed back — this page cannot recover it either. That is the point of hashing.</p>'
+  +'<h3>Your options</h3><ul><li>Try the passphrase you chose earlier.</li><li>Continue as a guest and keep the exploration record already stored here.</li><li>Create a new workspace. That replaces the stored hash; everything else in your record stays untouched.</li></ul>'
+  +'<div class="sheet-actions"><button class="btn" type="button" id="fgNew">Create a new workspace</button><button class="control" type="button" id="fgGuest">Continue as guest</button></div>');
+ wire("fgNew",()=>setTimeout(()=>{setMode("create");$("#gUser").focus();},40));
+ wire("fgGuest",()=>begin({w:"Guest",m:"guest"}));
+}
+
+/* ---- intro ---- */
+function progress(p,label){
+ if(fill)fill.style.width=p+"%";
+ if(bar)bar.setAttribute("aria-valuenow",String(p));
+ if(pct)pct.textContent=p+"%";
+ if(label&&note)note.textContent=label;
+}
+function decodeAll(){
+ const keys=Object.keys(IMG);
+ if(!keys.length)return Promise.resolve(0);
+ let done=0;
+ progress(0,"Decoding "+keys.length+" embedded renders…");
+ return new Promise(res=>{
+  keys.forEach(k=>{
+   const im=new Image();let fired=false;
+   const ok=()=>{if(fired)return;fired=true;done++;progress(Math.round(done/keys.length*100),"Decoded "+done+" of "+keys.length+" renders");if(done===keys.length)res(done);};
+   im.onload=ok;im.onerror=ok;im.src=IMG[k];
+   if(typeof im.decode==="function")im.decode().then(ok,ok);
+  });
+ });
+}
+function finishSplash(){
+ if(splashDone)return;splashDone=true;
+ splash.classList.add("gone");
+ setTimeout(()=>{splash.hidden=true;},reduce?0:520);
+ if(sess){lock(false);paintAvatar();}else openGate("login");
+}
+function enter(){
+ const wait=Math.max(0,(reduce?120:600)-(Date.now()-t0));
+ setTimeout(finishSplash,wait);
+}
+function runIntro(){
+ splashDone=false;t0=Date.now();
+ splash.hidden=false;splash.classList.remove("gone");
+ lock(true);
+ Promise.race([decodeAll(),new Promise(r=>setTimeout(()=>r(-1),9000))]).then(n=>{
+  if(n===-1)progress(100,"Still decoding in the background — entering now.");
+  else progress(100,"Ready");
+  enter();
+ });
+}
+
+/* ---- status bar ---- */
+function paintStatus(){
+ const b=$("#stBuild");
+ if(b){let d="unknown";try{if(document.lastModified)d=new Date(document.lastModified).toLocaleString();}catch(e){}
+  b.textContent="File updated "+d;}
+ const st=$("#stStore");
+ if(st){let ok=false;try{localStorage.setItem("__qx","1");localStorage.removeItem("__qx");ok=true;}catch(e){}
+  st.textContent="Local storage: "+(ok?"available":"blocked — progress cannot be saved");
+  st.style.color=ok?"":"#f0a8a8";}
+ const c=$("#stClock");
+ if(c){const tick=()=>{c.textContent=new Date().toLocaleTimeString();};tick();setInterval(tick,1000);}
+}
+
+/* ---- nav dropdowns ---- */
+function closeGroups(){$$(".navgrp.open").forEach(g=>{g.classList.remove("open");const b=g.querySelector(":scope>button");if(b)b.setAttribute("aria-expanded","false");});}
+$$(".navgrp>button").forEach(b=>b.addEventListener("click",ev=>{
+ ev.preventDefault();
+ const g=b.parentElement,was=g.classList.contains("open");
+ closeGroups();
+ if(!was){g.classList.add("open");b.setAttribute("aria-expanded","true");}
+}));
+document.addEventListener("click",ev=>{
+ const act=ev.target.closest("[data-act]");
+ if(act){closeGroups();const a=act.dataset.act;
+  if(a==="search")openPanel();else if(a==="help")openHelp();else if(a==="pubs")openPubs();return;}
+ if(ev.target.closest(".dd a"))closeGroups();
+ else if(!ev.target.closest(".navgrp"))closeGroups();
+});
+
+/* ---- gate controls ---- */
+$("#gateForm").addEventListener("submit",async ev=>{
+ ev.preventDefault();
+ const who=$("#gUser").value.trim(),pass=$("#gPass").value,a=acct();
+ if(who.length<2)return fail("Enter the name or email address you want on this workspace.");
+ if(who.length>60)return fail("Keep the name under 60 characters.");
+ if(pass.length<6)return fail("Use at least 6 characters for the passphrase.");
+ if(!(self.crypto&&crypto.subtle&&crypto.subtle.digest))
+  return fail("This browser opened the file from a location without Web Crypto, so a passphrase cannot be hashed safely. Use the guest link, or serve the file over http://localhost or https.");
+ const enc=new TextEncoder();
+ const hex=u=>Array.from(u).map(b=>b.toString(16).padStart(2,"0")).join("");
+ const digest=async t=>{try{return hex(new Uint8Array(await crypto.subtle.digest("SHA-256",enc.encode(t))));}catch(e){return null;}};
+ if(mode==="create"){
+  const s=hex((self.crypto.getRandomValues?crypto.getRandomValues(new Uint8Array(16)):Array.from({length:16},()=>Math.floor(Math.random()*256))));
+  const h=await digest(s+":"+pass);
+  if(h===null)return fail("The passphrase could not be hashed on this device. Nothing was stored.");
+  if(!L.set(GKEY,JSON.stringify({u:who.toLowerCase(),name:who,salt:s,hash:h,created:Date.now()})))
+   return fail("This browser is refusing storage, so the workspace cannot be kept. Try the guest link.");
+  begin({w:who,m:"acct"});
+  toast("Workspace created on this device");
+  return;
+ }
+ if(!a)return fail("No workspace is stored on this device yet. Create one, or continue as a guest.");
+ if(a.u!==who.toLowerCase())return fail("This device holds a workspace under the name “"+a.name+"”. Use that name, or create a new one.");
+ const h=await digest(a.salt+":"+pass);
+ if(h===null||h!==a.hash)return fail("That passphrase does not match the one stored on this device.");
+ begin({w:a.name,m:"acct"});
+});
+$("#gCreate").addEventListener("click",()=>setMode(mode==="create"?"login":"create"));
+$("#gForgot").addEventListener("click",openForgot);
+$("#gGuest").addEventListener("click",()=>begin({w:"Guest",m:"guest"}));
+$("#gEye").addEventListener("click",()=>{
+ const p=$("#gPass"),on=p.type==="password";
+ p.type=on?"text":"password";
+ $("#gEye").setAttribute("aria-pressed",String(on));
+ $("#gEye").setAttribute("aria-label",on?"Hide password":"Show password");
+ $("#gEye").querySelector("use").setAttribute("href",on?"#i-eye-off":"#i-eye");
+});
+$("#gRemember").addEventListener("click",()=>{
+ const on=$("#gRemember").getAttribute("aria-checked")!=="true";
+ $("#gRemember").setAttribute("aria-checked",String(on));
+ const bx=$("#gRemember .box");if(bx)bx.style.opacity=on?"1":"0";
+});
+(function(){const bx=$("#gRemember .box");if(bx)bx.style.opacity="0";})();
+$$("[data-sso]").forEach(b=>b.addEventListener("click",()=>openSso(b.dataset.sso)));
+$("#spSkip").addEventListener("click",()=>{t0=Date.now()-9999;finishSplash();});
+$("#navBell").addEventListener("click",openBell);
+$("#navMember").addEventListener("click",openAccount);
+$("#qaAsk").addEventListener("click",openPanel);
+$("#qaHelp").addEventListener("click",openHelp);
+$("#watchIntro").addEventListener("click",runIntro);
+addEventListener("keydown",ev=>{
+ if(ev.key==="Escape")closeGroups();
+ if(ev.key!=="/"||ev.ctrlKey||ev.metaKey||ev.altKey)return;
+ const t=ev.target.tagName;
+ if(/INPUT|TEXTAREA|SELECT/.test(t)||!gate.hidden||sheet.open||!splash.hidden)return;
+ ev.preventDefault();openPanel();
+});
+
+/* ---- boot ---- */
+$("#gateFig").src=IMG.figFront;
+paintCounts();paintDevice();paintStatus();
+sess=jread(S.get(SKEY))||jread(L.get(AKEY));
+const claim=sess&&sess.m==="acct"?sess.w:null;
+if(store.member!==claim){store.member=claim;save();}
+paintAvatar();paintBell();
+["hashchange","focus","storage"].forEach(t=>addEventListener(t,()=>setTimeout(()=>{paintBell();paintDevice();},0)));
+addEventListener("click",()=>setTimeout(()=>{paintBell();paintDevice();},0));
+runIntro();
+})();
 </script>
 </body>
 </html>
